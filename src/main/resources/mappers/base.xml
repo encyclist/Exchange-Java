@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.erning.exchange.dao.BaseDao">
+    <insert id="insert" parameterType="com.erning.exchange.entity.Exchange">
+        INSERT INTO exchange(currencyCode,exchange,updateTime) VALUES(#{currencyCode},#{exchange},#{updateTime})
+    </insert>
+    <update id="update" parameterType="com.erning.exchange.entity.Exchange">
+        UPDATE exchange SET exchange=#{exchange},updateTime=#{updateTime} WHERE currencyCode=#{currencyCode}
+    </update>
+    <select id="getWithCode" resultType="com.erning.exchange.entity.Exchange">
+        SELECT * FROM exchange WHERE currencyCode=#{code}
+    </select>
+</mapper>
